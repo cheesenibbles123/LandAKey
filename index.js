@@ -1,8 +1,9 @@
 import { Client, Events } from "discord.js";
+import { getCommands } from "./CommandLoader.js";
+import { loadKeys } from "./KeyLoader.js";
 
 // Setup importing of variables from the .env file
 import * as dotenv from "dotenv";
-import { getCommands } from "./CommandLoader";
 dotenv.config();
 
 // Instance bot client
