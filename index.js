@@ -1,6 +1,6 @@
 import { Client, Events } from "discord.js";
 import { getCommands } from "./CommandLoader.js";
-import { loadKeys } from "./KeyLoader.js";
+import keyLoader from "./KeyLoader.cjs";
 
 // Setup importing of variables from the .env file
 import * as dotenv from "dotenv";
@@ -11,7 +11,7 @@ const bot = new Client({intents : ["Guilds", "GuildMessages"]});
 
 // Only fires once
 bot.on(Events.ClientReady, async () => {
-    await loadKeys(bot);
+    await keyLoader.loadKeys(bot);
     bot.commands = getCommands();
     console.log(`${bot.user.username} is ready to distribute!`);
 });
