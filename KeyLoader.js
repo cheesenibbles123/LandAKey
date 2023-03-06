@@ -1,5 +1,5 @@
 import * as fs from 'fs';
-import { KEY_PATH } from '/.config.json';
+import { KEY_PATH } from './config.json';
 
 
 module.exports = {
