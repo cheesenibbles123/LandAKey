@@ -21,7 +21,23 @@ module.exports = {
             });
             resolve();
         })
-    }    
+    },
+    updateKeys(newUserId, key) {
+        bot.keys.gotKey.push({
+            id : newUserId,
+            key : key
+        });
+
+        fs.writeFile(KEY_PATH.ACTIVE, bot.keys.active.join("\n"), err => {
+            if (err) console.error(err);
+        });
+        fs.writeFile(KEY_PATH.GOT_KEY, bot.keys.gotKey.map(user => {
+            return `${user.id} ${user.key}`;
+        }).join("\n"), err => {
+            if (err) console.error(err);
+        });
+
+    }
 }
 
 function getDataFromFile(filePath) {

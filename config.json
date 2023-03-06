@@ -6,9 +6,17 @@
         "GOT_KEY" : "gotKey.txt"
     },
     "ROLES" : {
-        "MODERATOR" : "1051476941028466719"
+        "MODERATOR" : "1051476941028466719",
+        "ELIGIBLE" : ""
     },
     "CHANNELS" : {
         "GET_KEY" : ""
+    },
+    "MESSAGES" : {
+        "DM_CLOSED" : "It appears you currently can't receive keys.\nPlease enable \"allow direct messages from server members\" under the Privacy & Safety tab in you user settings.",
+        "HAS_KEY_ALREADY" : "You already have a key, please contact a moderator or developer if this is not the case.",
+        "KEY_EMBED_TITLE" : "Land Ahoy Key!",
+        "KEY_EMBED_DESCRIPTION" : "Here is your Land Ahoy closed testing key!",
+        "KEY_EMBED_THUMBNAIL" : "https://cdn.discordapp.com/icons/1046094509626376212/eecea77fc4c8e4bb5df161500751c907.webp?size=96"
     }
 }
