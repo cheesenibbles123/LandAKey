@@ -30,6 +30,7 @@ module.exports = {
         bot.keys.active.shift();
 
         const keyEmbed = {
+            color: 0x468aaa,
             title : config.MESSAGES.KEY_EMBED_TITLE,
             description: config.MESSAGES.KEY_EMBED_DESCRIPTION + `\n||${key}||`,
             thumbnail : {
