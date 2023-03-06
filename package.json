@@ -1,0 +1,15 @@
+{
+  "name": "landahoykeybot",
+  "version": "1.0.0",
+  "description": "Simple keybot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "cheesenibbles123",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^14.7.1",
+    "dotenv": "^16.0.3"
+  }
+}

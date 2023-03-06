@@ -1,0 +1,14 @@
+{
+    "PREFIX" : ";",
+    "KEY_PATHS" : {
+        "FOLDER" : "Keys/",
+        "ACTIVE" : "keys.txt",
+        "GOT_KEY" : "gotKey.txt"
+    },
+    "ROLES" : {
+        "MODERATOR" : "1051476941028466719"
+    },
+    "CHANNELS" : {
+        "GET_KEY" : ""
+    }
+}
