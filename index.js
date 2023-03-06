@@ -1,5 +1,5 @@
 import { Client, Events } from "discord.js";
-import { getCommands } from "./CommandLoader.js";
+import  { getCommands } from "./CommandLoader.cjs";
 import keyLoader from "./KeyLoader.cjs";
 
 // Setup importing of variables from the .env file
@@ -11,12 +11,12 @@ const bot = new Client({intents : ["Guilds", "GuildMessages"]});
 
 // Only fires once
 bot.on(Events.ClientReady, async () => {
-    await keyLoader.loadKeys(bot);
-    bot.commands = getCommands();
+    keyLoader.loadKeys(bot);
+    bot["commands"] = getCommands(bot);
     console.log(`${bot.user.username} is ready to distribute!`);
 });
 
-bot.on(Events.InteractionCreate, async (Intersection) => {
+bot.on(Events.InteractionCreate, async (interaction) => {
     if (!interaction.isChatInputCommand()) return;
 
     // Only run if command exists
@@ -31,7 +31,7 @@ bot.on(Events.InteractionCreate, async (Intersection) => {
         command.roles.forEach(role => {
             if (interaction.member.roles.cache.has(role)) missingRole = false;
         })
-        if (hasRole) interaction.reply({ content : "You do not have the correct permissions to execute this command.", ephemeral : true });
+        if (missingRole) return interaction.reply({ content : "You do not have the correct permissions to execute this command.", ephemeral : true });
     }
 
     // If has the function execute
