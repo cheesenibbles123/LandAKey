@@ -24,7 +24,7 @@ bot.on(Events.InteractionCreate, async (Intersection) => {
         return console.log(`Command ${interaction.commandName} not found!`);
     }
 
-    // If has the function
+    // If has the function execute
     if (command.execute){
         command.execute(interaction);
     }
