@@ -19,6 +19,7 @@ bot.on(Events.ClientReady, async () => {
 bot.on(Events.InteractionCreate, async (interaction) => {
     if (!interaction.isChatInputCommand()) return;
 
+    if (config.CHANNELS_GET_KEY !== "" && interaction.channel !== config.CHANNELS_GET_KEY) return interaction.reply({ content : `Please use this command in the appropriate channel: <#${config.CHANNELS_GET_KEY}>`, ephemeral : true });
     // Only run if command exists
     const command = bot.commands.get(interaction.commandName);
     if (!command){
