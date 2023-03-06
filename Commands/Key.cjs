@@ -1,4 +1,4 @@
-import * as config from './config.json' assert { type: "json" };
+const config = require('./config.json');
 
 let bot;
 module.exports = {
