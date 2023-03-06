@@ -1,4 +1,4 @@
-import * as config from "./config.json";
+import * as config from './config.json' assert { type: "json" };
 
 let bot;
 module.exports = {
@@ -19,7 +19,7 @@ module.exports = {
 
         const key = bot.keys.active[0];
         bot.keys.active.shift();
-        
+
         const keyEmbed = {
             title : config.MESSAGES.KEY_EMBED_TITLE,
             description: config.MESSAGES.KEY_EMBED_DESCRIPTION + `\n||${key}||`,
