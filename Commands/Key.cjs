@@ -1,4 +1,6 @@
-const config = require('./config.json');
+const { updateKeys } = require("../KeyLoader.cjs");
+
+const config = require("./../config.json");
 
 let bot;
 module.exports = {
@@ -14,9 +16,16 @@ module.exports = {
     execute(interaction) {
         const user = interaction.user;
 
-        if (!isDmOpen(user)) return interaction.reply(config.MESSAGES.DM_CLOSED)
-        if (!checkIsEligible(user)) return interaction.reply(config.MESSAGES.HAS_KEY_ALREADY);
-
+        if (!isDmOpen(user)) {
+            interaction.reply(config.MESSAGES.DM_CLOSED);
+            interaction.reply({ content: `Check your DM's!`, ephemeral : true });
+            return;
+        }
+        if (!checkIsEligible(user)) {
+            user.send(config.MESSAGES.HAS_KEY_ALREADY);
+            interaction.reply({ content: `Check your DM's!`, ephemeral : true });
+            return;
+        }
         const key = bot.keys.active[0];
         bot.keys.active.shift();
 
@@ -29,6 +38,8 @@ module.exports = {
         }
 
         user.send({ embeds: [keyEmbed] });
+        updateKeys(user.id, key);
+        interaction.reply({ content: `Check your DM's!`, ephemeral : true });
     }
 }
 
@@ -38,7 +49,8 @@ module.exports = {
  * @returns True/False
  */
 function checkIsEligible(user) {
-    if (bot.keys.got_key.filter( player => player.id === user.id).size < 1){
+    console.log(bot.keys.gotKey);
+    if (bot.keys.gotKey.filter( player => player.id === user.id).length < 1){
         return true;
     }
     return false;
