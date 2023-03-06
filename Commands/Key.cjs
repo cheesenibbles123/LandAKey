@@ -40,6 +40,7 @@ module.exports = {
         user.send({ embeds: [keyEmbed] });
         updateKeys(user.id, key);
         interaction.reply({ content: `Check your DM's!`, ephemeral : true });
+        console.log(`Sent key ${key} to: ${user.id}`);
     }
 }
 
@@ -49,7 +50,6 @@ module.exports = {
  * @returns True/False
  */
 function checkIsEligible(user) {
-    console.log(bot.keys.gotKey);
     if (bot.keys.gotKey.filter( player => player.id === user.id).length < 1){
         return true;
     }
