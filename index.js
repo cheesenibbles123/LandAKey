@@ -26,7 +26,7 @@ bot.on(Events.InteractionCreate, async (Intersection) => {
 
     // If has the function
     if (command.execute){
-        command.execute();
+        command.execute(interaction);
     }
 })
 
